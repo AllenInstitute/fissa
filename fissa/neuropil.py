@@ -122,9 +122,6 @@ def separate(
 
             # check if max number of iterations was reached
             if ica.n_iter_ < maxiter:
-                print((
-                    'ICA converged after {} iterations.'
-                ).format(ica.n_iter_))
                 break
             print((
                 'Attempt {} failed to converge at {} iterations.'
@@ -172,9 +169,6 @@ def separate(
 
             # check if max number of iterations was reached
             if nmf.n_iter_ < maxiter - 1:
-                print((
-                    'NMF converged after {} iterations.'
-                ).format(nmf.n_iter_ + 1))
                 break
             print((
                 'Attempt {} failed to converge at {} iterations.'
