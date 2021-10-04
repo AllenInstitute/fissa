@@ -244,11 +244,11 @@ class Experiment():
         # check if any data already exists
         if not os.path.exists(folder):
             os.makedirs(folder)
-        if os.path.isfile(os.path.join(folder, 'preparation.npy')):
-            if os.path.isfile(os.path.join(folder, 'separated.npy')):
-                self.separate()
-            else:
-                self.separation_prep()
+        # if os.path.isfile(os.path.join(folder, 'preparation.npy')):
+        #     if os.path.isfile(os.path.join(folder, 'separated.npy')):
+        #         self.separate()
+        #     else:
+        #         self.separation_prep()
 
     def separation_prep(self, redo=False):
         """Prepare and extract the data to be separated.
@@ -300,7 +300,7 @@ class Experiment():
 
             # Check whether we should use multiprocessing
             use_multiprocessing = (
-                has_multiprocessing and
+                has_multiprocessing and self.nTrials > 1 and
                 (self.ncores_preparation is None or self.ncores_preparation > 1)
             )
             # Do the extraction
